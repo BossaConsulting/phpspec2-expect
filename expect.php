@@ -21,12 +21,8 @@ use PHPSpec2\Wrapper\ArgumentsUnwrapper,
 
 require_once "Bossa/PHPSpec2/Expect/ObjectProphet.php";
 
-function expect($sus) {
-    return new Bossa\PHPSpec2\Expect\ObjectProphet($sus, new MatchersCollection(new TaggedPresenter(new Differ)), new ArgumentsUnwrapper);
-}    
-
-
-
-
-
-
+if (!function_exists('expect')) {
+    function expect($sus) {
+        return new Bossa\PHPSpec2\Expect\ObjectProphet($sus, new MatchersCollection(new TaggedPresenter(new Differ)), new ArgumentsUnwrapper);
+    }
+}
