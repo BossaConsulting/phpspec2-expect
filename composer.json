@@ -11,5 +11,9 @@
     ],
     "autoload": {
         "file": "expect.php"
-    }
+    },
+    "require": {
+        "phpspec/phpspec2": "*"
+    },
+    "minimum-stability": "dev"
 }
