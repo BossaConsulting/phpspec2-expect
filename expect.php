@@ -2,6 +2,8 @@
 
 if (is_dir($vendor = __DIR__ . '/../vendor')) {
     require_once($vendor . '/autoload.php');
+} elseif (is_dir($vendor = __DIR__ . '/../../../vendor')) {
+    require_once($vendor . '/autoload.php');
 } elseif (is_dir($vendor = __DIR__ . '/vendor')) {
     require_once($vendor . '/autoload.php');
 } else {
