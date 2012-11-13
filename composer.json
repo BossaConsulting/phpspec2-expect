@@ -1,0 +1,15 @@
+{
+    "name":         "bossa/phpspec2-expect",
+    "description":  "Helper that decorates any SUS with a phpspec2 lazy object wrapper",
+    "keywords":     ["BDD", "SpecBDD", "TDD", "spec", "specification"],
+    "license":      "MIT",
+    "authors":      [
+         {
+             "name": "Marcello Duarte",
+             "homepage": "http://marcelloduarte.net/"
+         }
+    ],
+    "autoload": {
+        "file": "expect.php"
+    }
+}
