@@ -17,13 +17,19 @@ if (is_dir($vendor = __DIR__ . '/../vendor')) {
 use PHPSpec2\Wrapper\ArgumentsUnwrapper,
     PHPSpec2\Matcher\MatchersCollection,
     PHPSpec2\Formatter\Presenter\TaggedPresenter,
-    PHPSpec2\Formatter\Presenter\Differ\Differ;
+    PHPSpec2\Formatter\Presenter\Differ\Differ,
+    PHPSpec2\Loader\Node\Specification;
 
 require_once "Bossa/PHPSpec2/Expect/ObjectProphet.php";
 
 if (!function_exists('expect')) {
     function expect($sus) {
         $presenter = new TaggedPresenter(new Differ);
-        return new Bossa\PHPSpec2\Expect\ObjectProphet($sus, new MatchersCollection($presenter), new ArgumentsUnwrapper, $presenter);
+        $unwrapper = new ArgumentsUnwrapper;
+        $matchers = new MatchersCollection($presenter);
+        $initializer = new PHPSpec2\Initializer\DefaultMatchersInitializer($presenter, $unwrapper);
+        
+        $initializer->initialize(new Specification('stdClass', new \ReflectionClass('stdClass')), $matchers);
+        return new Bossa\PHPSpec2\Expect\ObjectProphet($sus, $matchers, $unwrapper, $presenter);
     }
 }
