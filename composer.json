@@ -10,7 +10,7 @@
          }
     ],
     "autoload": {
-        "file": "expect.php"
+        "files": ["expect.php"]
     },
     "require": {
         "phpspec/phpspec2": "*"
