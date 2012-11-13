@@ -23,6 +23,7 @@ require_once "Bossa/PHPSpec2/Expect/ObjectProphet.php";
 
 if (!function_exists('expect')) {
     function expect($sus) {
-        return new Bossa\PHPSpec2\Expect\ObjectProphet($sus, new MatchersCollection(new TaggedPresenter(new Differ)), new ArgumentsUnwrapper);
+        $presenter = new TaggedPresenter(new Differ);
+        return new Bossa\PHPSpec2\Expect\ObjectProphet($sus, new MatchersCollection($presenter), new ArgumentsUnwrapper, $presenter);
     }
 }
