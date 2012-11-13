@@ -1,5 +1,5 @@
 {
-    "hash": "6c79ec38f9f728c7ab8e9cebe32682f4",
+    "hash": "ff1a2874e2ca6045cf9657e3f7981de1",
     "packages": [
         {
             "name": "mockery/mockery",
@@ -89,31 +89,37 @@
         },
         {
             "name": "phpspec/phpspec2",
-            "version": "dev-master",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec2.git",
-                "reference": "4eb75390b81363664d9e7519631cdb87c79fe23b"
+                "reference": "1b3e90869334a242b2dfa7bc9c4ef4dd7a2e397a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/phpspec/phpspec2/archive/4eb75390b81363664d9e7519631cdb87c79fe23b.zip",
-                "reference": "4eb75390b81363664d9e7519631cdb87c79fe23b",
+                "url": "https://github.com/phpspec/phpspec2/archive/1b3e90869334a242b2dfa7bc9c4ef4dd7a2e397a.zip",
+                "reference": "1b3e90869334a242b2dfa7bc9c4ef4dd7a2e397a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.1",
                 "mockery/mockery": "0.7.*",
-                "symfony/console": ">=2.1.0,<2.2.0",
-                "symfony/event-dispatcher": ">=2.1.0,<2.2.0",
-                "symfony/finder": ">=2.1.0,<2.2.0",
-                "phpspec/php-diff": "*@dev"
+                "phpspec/php-diff": "*@dev",
+                "php": ">=5.3.3",
+                "symfony/console": ">=2.1,<3.0",
+                "symfony/event-dispatcher": ">=2.1,<3.0",
+                "symfony/finder": ">=2.1,<3.0",
+                "symfony/yaml": ">=2.1,<3.0"
             },
-            "time": "1351698370",
+            "time": "1352812209",
             "bin": [
                 "bin/phpspec"
             ],
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "1.0.x-dev"
+                }
+            },
             "installation-source": "source",
             "autoload": {
                 "psr-0": {
@@ -134,45 +140,47 @@
                     "homepage": "http://marcelloduarte.net/"
                 }
             ],
-            "description": "Specification-oriented BDD framework for PHP 5.4",
+            "description": "Specification-oriented BDD framework for PHP 5.3+",
             "homepage": "http://phpspec.net/",
             "keywords": [
+                "testing",
                 "BDD",
                 "TDD",
                 "spec",
+                "tests",
                 "SpecBDD",
                 "specification"
             ]
         },
         {
             "name": "symfony/console",
-            "version": "2.1.x-dev",
+            "version": "dev-master",
             "target-dir": "Symfony/Component/Console",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console",
-                "reference": "528b030bd94d74b06735c9da9fd9495db0567800"
+                "reference": "6da537054e8f9f795e64a5b02eb7f9646c9b59e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/Console/archive/528b030bd94d74b06735c9da9fd9495db0567800.zip",
-                "reference": "528b030bd94d74b06735c9da9fd9495db0567800",
+                "url": "https://github.com/symfony/Console/archive/6da537054e8f9f795e64a5b02eb7f9646c9b59e7.zip",
+                "reference": "6da537054e8f9f795e64a5b02eb7f9646c9b59e7",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
-            "time": "1352451171",
+            "time": "1352815684",
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.1-dev"
+                    "dev-master": "2.2-dev"
                 }
             },
             "installation-source": "source",
             "autoload": {
                 "psr-0": {
-                    "Symfony\\Component\\Console": ""
+                    "Symfony\\Component\\Console\\": ""
                 }
             },
             "license": [
@@ -193,40 +201,40 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "2.1.x-dev",
+            "version": "dev-master",
             "target-dir": "Symfony/Component/EventDispatcher",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/EventDispatcher",
-                "reference": "b5b6807bcc192f3a1c4fba7ef48466ebbd3c4485"
+                "reference": "eb290a447c0af5bea0d3de5d95d498afd8c82f89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/EventDispatcher/archive/b5b6807bcc192f3a1c4fba7ef48466ebbd3c4485.zip",
-                "reference": "b5b6807bcc192f3a1c4fba7ef48466ebbd3c4485",
+                "url": "https://github.com/symfony/EventDispatcher/archive/eb290a447c0af5bea0d3de5d95d498afd8c82f89.zip",
+                "reference": "eb290a447c0af5bea0d3de5d95d498afd8c82f89",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "symfony/dependency-injection": "2.1.*"
+                "symfony/dependency-injection": "2.2.*"
             },
             "suggest": {
-                "symfony/dependency-injection": "2.1.*",
-                "symfony/http-kernel": "2.1.*"
+                "symfony/dependency-injection": "2.2.*",
+                "symfony/http-kernel": "2.2.*"
             },
-            "time": "1352368308",
+            "time": "1352815684",
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.1-dev"
+                    "dev-master": "2.2-dev"
                 }
             },
             "installation-source": "source",
             "autoload": {
                 "psr-0": {
-                    "Symfony\\Component\\EventDispatcher": ""
+                    "Symfony\\Component\\EventDispatcher\\": ""
                 }
             },
             "license": [
@@ -247,33 +255,33 @@
         },
         {
             "name": "symfony/finder",
-            "version": "2.1.x-dev",
+            "version": "dev-master",
             "target-dir": "Symfony/Component/Finder",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Finder",
-                "reference": "24e814560125249010dd08717f4d17079c061e98"
+                "reference": "c626c9eeb220a2c3ddd9b597c896d2e7675b42a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/Finder/archive/24e814560125249010dd08717f4d17079c061e98.zip",
-                "reference": "24e814560125249010dd08717f4d17079c061e98",
+                "url": "https://github.com/symfony/Finder/archive/c626c9eeb220a2c3ddd9b597c896d2e7675b42a1.zip",
+                "reference": "c626c9eeb220a2c3ddd9b597c896d2e7675b42a1",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
-            "time": "1352368308",
+            "time": "1352815684",
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.1-dev"
+                    "dev-master": "2.2-dev"
                 }
             },
             "installation-source": "source",
             "autoload": {
                 "psr-0": {
-                    "Symfony\\Component\\Finder": ""
+                    "Symfony\\Component\\Finder\\": ""
                 }
             },
             "license": [
@@ -291,14 +299,63 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "http://symfony.com"
+        },
+        {
+            "name": "symfony/yaml",
+            "version": "dev-master",
+            "target-dir": "Symfony/Component/Yaml",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Yaml",
+                "reference": "bed4fddc24392513e01b32a78d600b1272ed9a6c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/symfony/Yaml/archive/bed4fddc24392513e01b32a78d600b1272ed9a6c.zip",
+                "reference": "bed4fddc24392513e01b32a78d600b1272ed9a6c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "time": "1352815684",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Yaml\\": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Yaml Component",
+            "homepage": "http://symfony.com"
         }
     ],
-    "packages-dev": null,
+    "packages-dev": [
+
+    ],
     "aliases": [
 
     ],
     "minimum-stability": "dev",
-    "stability-flags": [
-
-    ]
+    "stability-flags": {
+        "phpspec/phpspec2": 20
+    }
 }
