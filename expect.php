@@ -15,12 +15,14 @@ if (is_dir($vendor = __DIR__ . '/../vendor')) {
 }
 
 use PHPSpec2\Wrapper\ArgumentsUnwrapper,
-    PHPSpec2\Matcher\MatchersCollection;
+    PHPSpec2\Matcher\MatchersCollection,
+    PHPSpec2\Formatter\Presenter\TaggedPresenter,
+    PHPSpec2\Formatter\Presenter\Differ\Differ;
 
 require_once "Bossa/PHPSpec2/Expect/ObjectProphet.php";
 
 function expect($sus) {
-    return new Bossa\PHPSpec2\Expect\ObjectProphet($sus, new MatchersCollection, new ArgumentsUnwrapper);
+    return new Bossa\PHPSpec2\Expect\ObjectProphet($sus, new MatchersCollection(new TaggedPresenter(new Differ)), new ArgumentsUnwrapper);
 }    
 
 
