@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "47a7d2211f87b94322941f2898708ee6",
+    "hash": "fecfde4c60c2414683659292f2305b51",
     "packages": [
         {
             "name": "phpspec/php-diff",
@@ -44,12 +44,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "6e4e82f796f4efe761bf06762e702d5ed92be3dc"
+                "reference": "7cf6b3a4fcaeaaf74287b04851d2e065c061230a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/6e4e82f796f4efe761bf06762e702d5ed92be3dc",
-                "reference": "6e4e82f796f4efe761bf06762e702d5ed92be3dc",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/7cf6b3a4fcaeaaf74287b04851d2e065c061230a",
+                "reference": "7cf6b3a4fcaeaaf74287b04851d2e065c061230a",
                 "shasum": ""
             },
             "require": {
@@ -101,7 +101,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2013-04-30 12:42:35"
+            "time": "2013-05-02 11:57:41"
         },
         {
             "name": "phpspec/prophecy",
@@ -165,12 +165,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "23d784fe28aecc50d671eb9596b17b920e158e5f"
+                "reference": "v2.3.0-BETA1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/23d784fe28aecc50d671eb9596b17b920e158e5f",
-                "reference": "23d784fe28aecc50d671eb9596b17b920e158e5f",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/v2.3.0-BETA1",
+                "reference": "v2.3.0-BETA1",
                 "shasum": ""
             },
             "require": {
@@ -215,12 +215,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/EventDispatcher.git",
-                "reference": "2e1fce7bb3ea06d9e42756f1dd3edf966420c755"
+                "reference": "v2.3.0-BETA1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/2e1fce7bb3ea06d9e42756f1dd3edf966420c755",
-                "reference": "2e1fce7bb3ea06d9e42756f1dd3edf966420c755",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/v2.3.0-BETA1",
+                "reference": "v2.3.0-BETA1",
                 "shasum": ""
             },
             "require": {
@@ -316,12 +316,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Yaml.git",
-                "reference": "f198ac28048eeceae852419c076123aaee59cd1c"
+                "reference": "v2.3.0-BETA1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/f198ac28048eeceae852419c076123aaee59cd1c",
-                "reference": "f198ac28048eeceae852419c076123aaee59cd1c",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/v2.3.0-BETA1",
+                "reference": "v2.3.0-BETA1",
                 "shasum": ""
             },
             "require": {
@@ -354,7 +354,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
-            "time": "2013-01-31 21:39:01"
+            "time": "2013-04-21 12:26:17"
         }
     ],
     "packages-dev": [
