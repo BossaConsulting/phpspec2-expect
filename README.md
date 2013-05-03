@@ -9,7 +9,7 @@ Add `"bossa/phpspec2-expect": "*"` to `composer.json`
 ```json
 {
     "require-dev": {
-         "phpspec/phpspec2": "dev-develop",
+         "phpspec/phpspec": "dev-master",
          "bossa/phpspec2-expect": "*"
     },
     "config": {
