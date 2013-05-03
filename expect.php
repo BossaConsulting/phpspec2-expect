@@ -63,20 +63,16 @@ if (!function_exists('expect')) {
             $serialized = sprintf('O:%u:"%s":0:{}', strlen($class), $class);
             $object     = unserialize($serialized);
 
-            if (!$object instanceof MatchersProviderInterface) {
-                return;
-            }
-
-            foreach ($object->getMatchers() as $name => $matcher) {
-                if ($matcher instanceof MatcherInterface) {
-                    $matchers->add($matcher);
-                } elseif(is_callable($matcher)) {
-                    $matchers->add(new CallbackMatcher(
-                        $name, $matcher, $presenter
-                    ));
-                } else {
-                    throw new \RuntimeException('Custom matcher has to implement "PhpSpec\Matcher\MatcherInterface" or be a callable');
-		}
+            if ($object instanceof MatchersProviderInterface) {
+                foreach ($object->getMatchers() as $name => $matcher) {
+                    if ($matcher instanceof MatcherInterface) {
+                        $matchers->add($matcher);
+                    } elseif(is_callable($matcher)) {
+                        $matchers->add(new CallbackMatcher($name, $matcher, $presenter));
+                    } else {
+                        throw new \RuntimeException('Custom matcher has to implement "PhpSpec\Matcher\MatcherInterface" or be a callable');
+                    }
+                }
             }
         }
 
