@@ -44,12 +44,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "7cf6b3a4fcaeaaf74287b04851d2e065c061230a"
+                "reference": "1d7e43798bc7a7a8e748f7058bcb5d6bf47d48d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/7cf6b3a4fcaeaaf74287b04851d2e065c061230a",
-                "reference": "7cf6b3a4fcaeaaf74287b04851d2e065c061230a",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/1d7e43798bc7a7a8e748f7058bcb5d6bf47d48d7",
+                "reference": "1d7e43798bc7a7a8e748f7058bcb5d6bf47d48d7",
                 "shasum": ""
             },
             "require": {
@@ -101,7 +101,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2013-05-02 11:57:41"
+            "time": "2013-05-03 12:57:55"
         },
         {
             "name": "phpspec/prophecy",
@@ -269,12 +269,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Finder.git",
-                "reference": "896a17dcb1ec4bab5bdaa11c5ea0d70d8eff1759"
+                "reference": "v2.3.0-BETA1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Finder/zipball/896a17dcb1ec4bab5bdaa11c5ea0d70d8eff1759",
-                "reference": "896a17dcb1ec4bab5bdaa11c5ea0d70d8eff1759",
+                "url": "https://api.github.com/repos/symfony/Finder/zipball/v2.3.0-BETA1",
+                "reference": "v2.3.0-BETA1",
                 "shasum": ""
             },
             "require": {
