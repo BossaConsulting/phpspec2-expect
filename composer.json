@@ -1,6 +1,6 @@
 {
     "name":         "bossa/phpspec2-expect",
-    "description":  "Helper that decorates any SUS with a phpspec2 lazy object wrapper",
+    "description":  "Helper that decorates any SUS with a phpspec lazy object wrapper",
     "keywords":     ["BDD", "SpecBDD", "TDD", "spec", "specification"],
     "license":      "MIT",
     "authors":      [
@@ -13,7 +13,7 @@
         "files": ["expect.php"]
     },
     "require": {
-        "phpspec/phpspec2": "dev-develop"
+        "phpspec/phpspec": "dev-master"
     },
     "minimum-stability": "dev"
 }
