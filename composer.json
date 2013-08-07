@@ -13,7 +13,7 @@
         "files": ["expect.php"]
     },
     "require": {
-        "phpspec/phpspec": "dev-master"
+        "phpspec/phpspec": "2.0.0-BETA4"
     },
     "minimum-stability": "dev"
 }
