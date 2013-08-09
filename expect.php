@@ -19,6 +19,7 @@ use PhpSpec\Formatter\Presenter\Differ\Differ;
 use PhpSpec\Wrapper\Unwrapper;
 use PhpSpec\Runner\MatcherManager;
 use Bossa\PhpSpec\Expect\Subject;
+use PhpSpec\Loader\Node\ExampleNode;
 use PhpSpec\Matcher\IdentityMatcher;
 use PhpSpec\Matcher\CallbackMatcher;
 use PhpSpec\Matcher\ComparisonMatcher;
@@ -34,6 +35,7 @@ use PhpSpec\Matcher\ArrayContainMatcher;
 use PhpSpec\Matcher\StringStartMatcher;
 use PhpSpec\Matcher\StringEndMatcher;
 use PhpSpec\Matcher\StringRegexMatcher;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 
 require_once 'Bossa/PhpSpec/Expect/Subject.php';
 
@@ -42,6 +44,9 @@ if (!function_exists('expect')) {
     {
         $presenter = new TaggedPresenter(new Differ);
         $unwrapper = new Unwrapper;
+        $eventDispatcher = new EventDispatcher;
+        $exampleNode = new ExampleNode('expect', new \ReflectionFunction(__FUNCTION__));
+
         $matchers  = new MatcherManager($presenter);
         $matchers->add(new IdentityMatcher($presenter));
         $matchers->add(new ComparisonMatcher($presenter));
@@ -76,6 +81,6 @@ if (!function_exists('expect')) {
             }
         }
 
-        return new Subject($sus, $matchers, $unwrapper, $presenter);
+        return new Subject($sus, $matchers, $unwrapper, $presenter, $eventDispatcher, $exampleNode);
     }
 }
