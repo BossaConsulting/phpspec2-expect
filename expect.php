@@ -17,6 +17,7 @@ if (is_dir($vendor = __DIR__ . '/../vendor')) {
 use PhpSpec\Formatter\Presenter\TaggedPresenter;
 use PhpSpec\Formatter\Presenter\Differ\Differ;
 use PhpSpec\Wrapper\Unwrapper;
+use PhpSpec\Wrapper\Wrapper;
 use PhpSpec\Runner\MatcherManager;
 use Bossa\PhpSpec\Expect\Subject;
 use PhpSpec\Loader\Node\ExampleNode;
@@ -80,7 +81,8 @@ if (!function_exists('expect')) {
                 }
             }
         }
+        $wrapper = new Wrapper($matchers, $presenter, $eventDispatcher, $exampleNode);
 
-        return new Subject($sus, $matchers, $unwrapper, $presenter, $eventDispatcher, $exampleNode);
+        return $wrapper->wrap($sus);
     }
 }
