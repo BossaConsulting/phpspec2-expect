@@ -18,6 +18,10 @@ use PhpSpec\Formatter\Presenter\TaggedPresenter;
 use PhpSpec\Formatter\Presenter\Differ\Differ;
 use PhpSpec\Wrapper\Unwrapper;
 use PhpSpec\Wrapper\Wrapper;
+use PhpSpec\Wrapper\Subject\WrappedObject;
+use PhpSpec\Wrapper\Subject\Caller;
+use PhpSpec\Wrapper\Subject\SubjectWithArrayAccess;
+use PhpSpec\Wrapper\Subject\ExpectationFactory;
 use PhpSpec\Runner\MatcherManager;
 use Bossa\PhpSpec\Expect\Subject;
 use PhpSpec\Loader\Node\ExampleNode;
@@ -81,8 +85,13 @@ if (!function_exists('expect')) {
                 }
             }
         }
-        $wrapper = new Wrapper($matchers, $presenter, $eventDispatcher, $exampleNode);
 
-        return $wrapper->wrap($sus);
+        $wrapper            = new Wrapper($matchers, $presenter, $eventDispatcher, $exampleNode);
+        $wrappedObject      = new WrappedObject($sus, $presenter);
+        $caller             = new Caller($wrappedObject, $exampleNode, $eventDispatcher, $presenter, $matchers, $wrapper);
+        $arrayAccess        = new SubjectWithArrayAccess($caller, $presenter, $eventDispatcher);
+        $expectationFactory = new ExpectationFactory($exampleNode, $eventDispatcher, $matchers);
+
+        return new Subject($sus, $wrapper, $wrappedObject, $caller, $arrayAccess, $expectationFactory);
     }
 }
