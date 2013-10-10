@@ -1,18 +1,17 @@
 <?php
 
-if (is_dir($vendor = __DIR__ . '/../vendor')) {
-    require_once($vendor . '/autoload.php');
-} elseif (is_dir($vendor = __DIR__ . '/../../../vendor')) {
-    require_once($vendor . '/autoload.php');
-} elseif (is_dir($vendor = __DIR__ . '/vendor')) {
-    require_once($vendor . '/autoload.php');
-} else {
+if (!is_file($autoload = __DIR__ . '/../vendor/autoload.php')
+    && !is_file($autoload = __DIR__ . '/../../../vendor/autoload.php')
+    && !is_file($autoload = __DIR__ . '/vendor/autoload.php')
+    && !is_file($autoload = __DIR__ . '/../../autoload.php')) {
     die(
         'You must set up the project dependencies, run the following commands:' . PHP_EOL .
-            'curl -s http://getcomposer.org/installer | php' . PHP_EOL .
-            'php composer.phar install' . PHP_EOL
+        'curl -s http://getcomposer.org/installer | php' . PHP_EOL .
+        'php composer.phar install' . PHP_EOL
     );
 }
+
+require_once $autoload;
 
 use PhpSpec\Formatter\Presenter\TaggedPresenter;
 use PhpSpec\Formatter\Presenter\Differ\Differ;
