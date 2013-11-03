@@ -14,32 +14,33 @@ if (is_dir($vendor = __DIR__ . '/../vendor')) {
     );
 }
 
-use PhpSpec\Formatter\Presenter\TaggedPresenter;
-use PhpSpec\Formatter\Presenter\Differ\Differ;
-use PhpSpec\Wrapper\Unwrapper;
-use PhpSpec\Wrapper\Wrapper;
-use PhpSpec\Wrapper\Subject\WrappedObject;
-use PhpSpec\Wrapper\Subject\Caller;
-use PhpSpec\Wrapper\Subject\SubjectWithArrayAccess;
-use PhpSpec\Wrapper\Subject\ExpectationFactory;
-use PhpSpec\Runner\MatcherManager;
 use Bossa\PhpSpec\Expect\Subject;
+use PhpSpec\Exception\ExceptionFactory;
+use PhpSpec\Formatter\Presenter\Differ\Differ;
+use PhpSpec\Formatter\Presenter\TaggedPresenter;
 use PhpSpec\Loader\Node\ExampleNode;
-use PhpSpec\Matcher\IdentityMatcher;
-use PhpSpec\Matcher\CallbackMatcher;
-use PhpSpec\Matcher\ComparisonMatcher;
-use PhpSpec\Matcher\MatcherInterface;
-use PhpSpec\Matcher\MatchersProviderInterface;
-use PhpSpec\Matcher\ThrowMatcher;
-use PhpSpec\Matcher\TypeMatcher;
-use PhpSpec\Matcher\ObjectStateMatcher;
-use PhpSpec\Matcher\ScalarMatcher;
+use PhpSpec\Matcher\ArrayContainMatcher;
 use PhpSpec\Matcher\ArrayCountMatcher;
 use PhpSpec\Matcher\ArrayKeyMatcher;
-use PhpSpec\Matcher\ArrayContainMatcher;
-use PhpSpec\Matcher\StringStartMatcher;
+use PhpSpec\Matcher\CallbackMatcher;
+use PhpSpec\Matcher\ComparisonMatcher;
+use PhpSpec\Matcher\IdentityMatcher;
+use PhpSpec\Matcher\MatcherInterface;
+use PhpSpec\Matcher\MatchersProviderInterface;
+use PhpSpec\Matcher\ObjectStateMatcher;
+use PhpSpec\Matcher\ScalarMatcher;
 use PhpSpec\Matcher\StringEndMatcher;
 use PhpSpec\Matcher\StringRegexMatcher;
+use PhpSpec\Matcher\StringStartMatcher;
+use PhpSpec\Matcher\ThrowMatcher;
+use PhpSpec\Matcher\TypeMatcher;
+use PhpSpec\Runner\MatcherManager;
+use PhpSpec\Wrapper\Subject\Caller;
+use PhpSpec\Wrapper\Subject\ExpectationFactory;
+use PhpSpec\Wrapper\Subject\SubjectWithArrayAccess;
+use PhpSpec\Wrapper\Subject\WrappedObject;
+use PhpSpec\Wrapper\Unwrapper;
+use PhpSpec\Wrapper\Wrapper;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 
 require_once 'Bossa/PhpSpec/Expect/Subject.php';
@@ -69,9 +70,9 @@ if (!function_exists('expect')) {
         $trace = debug_backtrace();
         if (isset($trace[1]['class'])) {
 
-            $class      = $trace[1]['class'];
+            $class = $trace[1]['class'];
             $serialized = sprintf('O:%u:"%s":0:{}', strlen($class), $class);
-            $object     = unserialize($serialized);
+            $object = unserialize($serialized);
 
             if ($object instanceof MatchersProviderInterface) {
                 foreach ($object->getMatchers() as $name => $matcher) {
@@ -86,10 +87,11 @@ if (!function_exists('expect')) {
             }
         }
 
-        $wrapper            = new Wrapper($matchers, $presenter, $eventDispatcher, $exampleNode);
-        $wrappedObject      = new WrappedObject($sus, $presenter);
-        $caller             = new Caller($wrappedObject, $exampleNode, $eventDispatcher, $presenter, $matchers, $wrapper);
-        $arrayAccess        = new SubjectWithArrayAccess($caller, $presenter, $eventDispatcher);
+        $exceptionFactory = new ExceptionFactory($presenter);
+        $wrapper = new Wrapper($matchers, $presenter, $eventDispatcher, $exampleNode);
+        $wrappedObject = new WrappedObject($sus, $presenter);
+        $caller = new Caller($wrappedObject, $exampleNode, $eventDispatcher, $exceptionFactory, $wrapper);
+        $arrayAccess = new SubjectWithArrayAccess($caller, $presenter, $eventDispatcher);
         $expectationFactory = new ExpectationFactory($exampleNode, $eventDispatcher, $matchers);
 
         return new Subject($sus, $wrapper, $wrappedObject, $caller, $arrayAccess, $expectationFactory);
