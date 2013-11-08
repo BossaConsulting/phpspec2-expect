@@ -15,6 +15,7 @@ if (is_dir($vendor = __DIR__ . '/../vendor')) {
 }
 
 use Bossa\PhpSpec\Expect\Subject;
+use Bossa\PhpSpec\Expect\Wrapper;
 use PhpSpec\Exception\ExceptionFactory;
 use PhpSpec\Formatter\Presenter\Differ\Differ;
 use PhpSpec\Formatter\Presenter\TaggedPresenter;
@@ -40,10 +41,10 @@ use PhpSpec\Wrapper\Subject\ExpectationFactory;
 use PhpSpec\Wrapper\Subject\SubjectWithArrayAccess;
 use PhpSpec\Wrapper\Subject\WrappedObject;
 use PhpSpec\Wrapper\Unwrapper;
-use PhpSpec\Wrapper\Wrapper;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 
 require_once 'Bossa/PhpSpec/Expect/Subject.php';
+require_once 'Bossa/PhpSpec/Expect/Wrapper.php';
 
 if (!function_exists('expect')) {
     function expect($sus)
