@@ -13,7 +13,7 @@
         "files": ["expect.php"]
     },
     "require": {
-        "phpspec/phpspec": "2.0.0-RC3"
+        "phpspec/phpspec": ">=2.0.0-RC3"
     },
     "minimum-stability": "dev"
 }
