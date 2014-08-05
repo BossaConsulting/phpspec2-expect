@@ -69,9 +69,9 @@ if (!function_exists('expect')) {
         $matchers->add(new StringRegexMatcher($presenter));
 
         $trace = debug_backtrace();
-        if (isset($trace[1]['class'])) {
+        if (isset($trace[1]['object'])) {
 
-            $class = $trace[1]['class'];
+            $class = get_class($trace[1]['object']);
             $serialized = sprintf('O:%u:"%s":0:{}', strlen($class), $class);
             $object = unserialize($serialized);
 
