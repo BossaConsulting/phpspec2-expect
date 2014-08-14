@@ -10,7 +10,10 @@
          }
     ],
     "autoload": {
-        "files": ["expect.php"]
+        "files": ["expect.php"],
+        "psr-0": {
+            "Bossa\\PhpSpec\\Expect\\": ""
+        }
     },
     "require": {
         "phpspec/phpspec": ">=2.0.0-RC3"

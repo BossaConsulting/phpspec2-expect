@@ -1,19 +1,5 @@
 <?php
 
-if (is_dir($vendor = __DIR__ . '/../vendor')) {
-    require_once($vendor . '/autoload.php');
-} elseif (is_dir($vendor = __DIR__ . '/../../../vendor')) {
-    require_once($vendor . '/autoload.php');
-} elseif (is_dir($vendor = __DIR__ . '/vendor')) {
-    require_once($vendor . '/autoload.php');
-} else {
-    die(
-        'You must set up the project dependencies, run the following commands:' . PHP_EOL .
-            'curl -s http://getcomposer.org/installer | php' . PHP_EOL .
-            'php composer.phar install' . PHP_EOL
-    );
-}
-
 use Bossa\PhpSpec\Expect\Subject;
 use Bossa\PhpSpec\Expect\Wrapper;
 use PhpSpec\Exception\ExceptionFactory;
@@ -42,9 +28,6 @@ use PhpSpec\Wrapper\Subject\SubjectWithArrayAccess;
 use PhpSpec\Wrapper\Subject\WrappedObject;
 use PhpSpec\Wrapper\Unwrapper;
 use Symfony\Component\EventDispatcher\EventDispatcher;
-
-require_once 'Bossa/PhpSpec/Expect/Subject.php';
-require_once 'Bossa/PhpSpec/Expect/Wrapper.php';
 
 if (!function_exists('expect')) {
     function expect($sus)
