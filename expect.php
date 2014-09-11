@@ -53,10 +53,7 @@ if (!function_exists('expect')) {
 
         $trace = debug_backtrace();
         if (isset($trace[1]['object'])) {
-
-            $class = get_class($trace[1]['object']);
-            $serialized = sprintf('O:%u:"%s":0:{}', strlen($class), $class);
-            $object = unserialize($serialized);
+            $object = $trace[1]['object'];
 
             if ($object instanceof MatchersProviderInterface) {
                 foreach ($object->getMatchers() as $name => $matcher) {
