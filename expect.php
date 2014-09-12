@@ -52,11 +52,8 @@ if (!function_exists('expect')) {
         $matchers->add(new StringRegexMatcher($presenter));
 
         $trace = debug_backtrace();
-        if (isset($trace[1]['class'])) {
-
-            $class = $trace[1]['class'];
-            $serialized = sprintf('O:%u:"%s":0:{}', strlen($class), $class);
-            $object = unserialize($serialized);
+        if (isset($trace[1]['object'])) {
+            $object = $trace[1]['object'];
 
             if ($object instanceof MatchersProviderInterface) {
                 foreach ($object->getMatchers() as $name => $matcher) {
