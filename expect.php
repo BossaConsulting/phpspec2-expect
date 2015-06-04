@@ -9,6 +9,7 @@ use PhpSpec\Loader\Node\ExampleNode;
 use PhpSpec\Matcher\ArrayContainMatcher;
 use PhpSpec\Matcher\ArrayCountMatcher;
 use PhpSpec\Matcher\ArrayKeyMatcher;
+use PhpSpec\Matcher\ArrayKeyValueMatcher;
 use PhpSpec\Matcher\CallbackMatcher;
 use PhpSpec\Matcher\ComparisonMatcher;
 use PhpSpec\Matcher\IdentityMatcher;
@@ -46,6 +47,7 @@ if (!function_exists('expect')) {
         $matchers->add(new ScalarMatcher($presenter));
         $matchers->add(new ArrayCountMatcher($presenter));
         $matchers->add(new ArrayKeyMatcher($presenter));
+        $matchers->add(new ArrayKeyValueMatcher($presenter));
         $matchers->add(new ArrayContainMatcher($presenter));
         $matchers->add(new StringStartMatcher($presenter));
         $matchers->add(new StringEndMatcher($presenter));
