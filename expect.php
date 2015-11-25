@@ -16,6 +16,7 @@ use PhpSpec\Matcher\MatcherInterface;
 use PhpSpec\Matcher\MatchersProviderInterface;
 use PhpSpec\Matcher\ObjectStateMatcher;
 use PhpSpec\Matcher\ScalarMatcher;
+use PhpSpec\Matcher\StringContainMatcher;
 use PhpSpec\Matcher\StringEndMatcher;
 use PhpSpec\Matcher\StringRegexMatcher;
 use PhpSpec\Matcher\StringStartMatcher;
@@ -47,6 +48,7 @@ if (!function_exists('expect')) {
         $matchers->add(new ArrayCountMatcher($presenter));
         $matchers->add(new ArrayKeyMatcher($presenter));
         $matchers->add(new ArrayContainMatcher($presenter));
+        $matchers->add(new StringContainMatcher($presenter));
         $matchers->add(new StringStartMatcher($presenter));
         $matchers->add(new StringEndMatcher($presenter));
         $matchers->add(new StringRegexMatcher($presenter));
