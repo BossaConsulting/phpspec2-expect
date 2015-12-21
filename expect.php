@@ -3,8 +3,6 @@
 use Bossa\PhpSpec\Expect\Subject;
 use Bossa\PhpSpec\Expect\Wrapper;
 use PhpSpec\Exception\ExceptionFactory;
-use PhpSpec\Formatter\Presenter\Differ\Differ;
-use PhpSpec\Formatter\Presenter\TaggedPresenter;
 use PhpSpec\Loader\Node\ExampleNode;
 use PhpSpec\Matcher\ArrayContainMatcher;
 use PhpSpec\Matcher\ArrayCountMatcher;
@@ -32,7 +30,12 @@ use Symfony\Component\EventDispatcher\EventDispatcher;
 if (!function_exists('expect')) {
     function expect($sus)
     {
-        $presenter = new TaggedPresenter(new Differ);
+        $container = new \PhpSpec\ServiceContainer();
+        $presenterAssmembler = new \PhpSpec\Console\Assembler\PresenterAssembler();
+        $presenterAssmembler->assemble($container);
+        $container->configure();
+        $presenter = $container->get('formatter.presenter');
+
         $unwrapper = new Unwrapper;
         $eventDispatcher = new EventDispatcher;
         $exampleNode = new ExampleNode('expect', new \ReflectionFunction(__FUNCTION__));

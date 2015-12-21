@@ -4,7 +4,7 @@ namespace Bossa\PhpSpec\Expect;
 
 use PhpSpec\Exception\ExceptionFactory;
 use PhpSpec\Runner\MatcherManager;
-use PhpSpec\Formatter\Presenter\PresenterInterface;
+use PhpSpec\Formatter\Presenter\Presenter;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use PhpSpec\Loader\Node\ExampleNode;
 
@@ -21,7 +21,7 @@ class Wrapper extends BaseWrapper
     private $dispatcher;
     private $example;
 
-    public function __construct(MatcherManager $matchers, PresenterInterface $presenter,
+    public function __construct(MatcherManager $matchers, Presenter $presenter,
         EventDispatcherInterface $dispatcher, ExampleNode $example)
     {
         $this->matchers = $matchers;
