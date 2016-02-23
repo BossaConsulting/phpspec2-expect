@@ -2,7 +2,10 @@
 
 use Bossa\PhpSpec\Expect\Subject;
 use Bossa\PhpSpec\Expect\Wrapper;
+use PhpSpec\CodeAnalysis\MagicAwareAccessInspector;
+use PhpSpec\CodeAnalysis\VisibilityAccessInspector;
 use PhpSpec\Exception\ExceptionFactory;
+use PhpSpec\Factory\ReflectionFactory;
 use PhpSpec\Formatter\Presenter\Differ\Differ;
 use PhpSpec\Formatter\Presenter\TaggedPresenter;
 use PhpSpec\Loader\Node\ExampleNode;
@@ -40,7 +43,7 @@ if (!function_exists('expect')) {
         $matchers  = new MatcherManager($presenter);
         $matchers->add(new IdentityMatcher($presenter));
         $matchers->add(new ComparisonMatcher($presenter));
-        $matchers->add(new ThrowMatcher($unwrapper, $presenter));
+        $matchers->add(new ThrowMatcher($unwrapper, $presenter, new ReflectionFactory()));
         $matchers->add(new TypeMatcher($presenter));
         $matchers->add(new ObjectStateMatcher($presenter));
         $matchers->add(new ScalarMatcher($presenter));
@@ -71,7 +74,7 @@ if (!function_exists('expect')) {
         $exceptionFactory = new ExceptionFactory($presenter);
         $wrapper = new Wrapper($matchers, $presenter, $eventDispatcher, $exampleNode);
         $wrappedObject = new WrappedObject($sus, $presenter);
-        $caller = new Caller($wrappedObject, $exampleNode, $eventDispatcher, $exceptionFactory, $wrapper);
+        $caller = new Caller($wrappedObject, $exampleNode, $eventDispatcher, $exceptionFactory, $wrapper, new MagicAwareAccessInspector(new VisibilityAccessInspector()));
         $arrayAccess = new SubjectWithArrayAccess($caller, $presenter, $eventDispatcher);
         $expectationFactory = new ExpectationFactory($exampleNode, $eventDispatcher, $matchers);
 
