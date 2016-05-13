@@ -29,7 +29,13 @@ use PhpSpec\Wrapper\Subject\WrappedObject;
 use PhpSpec\Wrapper\Unwrapper;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 
-if (!function_exists('expect')) {
+$useExpect = true;
+
+if (getenv('PHPSPEC_DISABLE_EXPECT') || (defined('PHPSPEC_DISABLE_EXPECT') && PHPSPEC_DISABLE_EXPECT)) {
+    $useExpect = false;
+}
+
+if ($useExpect && !function_exists('expect')) {
     function expect($sus)
     {
         $presenter = new TaggedPresenter(new Differ);
