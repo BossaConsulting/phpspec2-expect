@@ -9,6 +9,7 @@ use PhpSpec\Loader\Node\ExampleNode;
 use PhpSpec\Matcher\ArrayContainMatcher;
 use PhpSpec\Matcher\ArrayCountMatcher;
 use PhpSpec\Matcher\ArrayKeyMatcher;
+use PhpSpec\Matcher\ArrayKeyValueMatcher;
 use PhpSpec\Matcher\CallbackMatcher;
 use PhpSpec\Matcher\ComparisonMatcher;
 use PhpSpec\Matcher\IdentityMatcher;
@@ -16,6 +17,7 @@ use PhpSpec\Matcher\MatcherInterface;
 use PhpSpec\Matcher\MatchersProviderInterface;
 use PhpSpec\Matcher\ObjectStateMatcher;
 use PhpSpec\Matcher\ScalarMatcher;
+use PhpSpec\Matcher\StringContainMatcher;
 use PhpSpec\Matcher\StringEndMatcher;
 use PhpSpec\Matcher\StringRegexMatcher;
 use PhpSpec\Matcher\StringStartMatcher;
@@ -38,18 +40,20 @@ if (!function_exists('expect')) {
         $exampleNode = new ExampleNode('expect', new \ReflectionFunction(__FUNCTION__));
 
         $matchers  = new MatcherManager($presenter);
-        $matchers->add(new IdentityMatcher($presenter));
-        $matchers->add(new ComparisonMatcher($presenter));
-        $matchers->add(new ThrowMatcher($unwrapper, $presenter));
-        $matchers->add(new TypeMatcher($presenter));
-        $matchers->add(new ObjectStateMatcher($presenter));
-        $matchers->add(new ScalarMatcher($presenter));
+        $matchers->add(new ArrayContainMatcher($presenter));
         $matchers->add(new ArrayCountMatcher($presenter));
         $matchers->add(new ArrayKeyMatcher($presenter));
-        $matchers->add(new ArrayContainMatcher($presenter));
-        $matchers->add(new StringStartMatcher($presenter));
+        $matchers->add(new ArrayKeyValueMatcher($presenter));
+        $matchers->add(new ComparisonMatcher($presenter));
+        $matchers->add(new IdentityMatcher($presenter));
+        $matchers->add(new ObjectStateMatcher($presenter));
+        $matchers->add(new ScalarMatcher($presenter));
+        $matchers->add(new StringContainMatcher($presenter));
         $matchers->add(new StringEndMatcher($presenter));
         $matchers->add(new StringRegexMatcher($presenter));
+        $matchers->add(new StringStartMatcher($presenter));
+        $matchers->add(new ThrowMatcher($unwrapper, $presenter));
+        $matchers->add(new TypeMatcher($presenter));
 
         $trace = debug_backtrace();
         if (isset($trace[1]['object'])) {
