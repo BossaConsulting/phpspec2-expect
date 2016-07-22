@@ -16,6 +16,6 @@
         }
     },
     "require": {
-        "phpspec/phpspec": "~3.0"
+        "phpspec/phpspec": "~3.0.0"
     }
 }
