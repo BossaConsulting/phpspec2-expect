@@ -8,6 +8,7 @@ use PhpSpec\Console\Assembler\PresenterAssembler;
 use PhpSpec\Exception\ExceptionFactory;
 use PhpSpec\Factory\ReflectionFactory;
 use PhpSpec\Loader\Node\ExampleNode;
+use PhpSpec\Matcher\ApproximatelyMatcher;
 use PhpSpec\Matcher\ArrayContainMatcher;
 use PhpSpec\Matcher\ArrayCountMatcher;
 use PhpSpec\Matcher\ArrayKeyMatcher;
@@ -15,6 +16,7 @@ use PhpSpec\Matcher\ArrayKeyValueMatcher;
 use PhpSpec\Matcher\CallbackMatcher;
 use PhpSpec\Matcher\ComparisonMatcher;
 use PhpSpec\Matcher\IdentityMatcher;
+use PhpSpec\Matcher\IterateAsMatcher;
 use PhpSpec\Matcher\Matcher;
 use PhpSpec\Matcher\MatchersProvider;
 use PhpSpec\Matcher\ObjectStateMatcher;
@@ -24,6 +26,7 @@ use PhpSpec\Matcher\StringEndMatcher;
 use PhpSpec\Matcher\StringRegexMatcher;
 use PhpSpec\Matcher\StringStartMatcher;
 use PhpSpec\Matcher\ThrowMatcher;
+use PhpSpec\Matcher\TriggerMatcher;
 use PhpSpec\Matcher\TypeMatcher;
 use PhpSpec\Runner\MatcherManager;
 use PhpSpec\ServiceContainer\IndexedServiceContainer;
@@ -70,6 +73,9 @@ if ($useExpect && !function_exists('expect')) {
         $matchers->add(new StringEndMatcher($presenter));
         $matchers->add(new StringRegexMatcher($presenter));
         $matchers->add(new StringContainMatcher($presenter));
+        $matchers->add(new TriggerMatcher($unwrapper));
+        $matchers->add(new IterateAsMatcher($presenter));
+        $matchers->add(new ApproximatelyMatcher($presenter));
 
         $trace = debug_backtrace();
         if (isset($trace[1]['object'])) {
