@@ -25,4 +25,12 @@ class Foo implements Countable
     {
         throw new InvalidArgumentException;
     }
+    public function triggerError()
+    {
+        trigger_error('The method triggerError is deprecated.', E_USER_DEPRECATED);
+    }
+    public function getIterator()
+    {
+        return new \ArrayIterator(['Foo', 'Bar']);
+    }
 }
