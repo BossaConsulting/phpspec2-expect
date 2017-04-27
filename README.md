@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/BossaConsulting/phpspec2-expect.svg?branch=master)](https://travis-ci.org/BossaConsulting/phpspec2-expect)
+
 phpspec2-expect
 ---------------
 
