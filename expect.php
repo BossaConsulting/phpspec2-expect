@@ -73,9 +73,15 @@ if ($useExpect && !function_exists('expect')) {
         $matchers->add(new StringEndMatcher($presenter));
         $matchers->add(new StringRegexMatcher($presenter));
         $matchers->add(new StringContainMatcher($presenter));
-        $matchers->add(new TriggerMatcher($unwrapper));
-        $matchers->add(new IterateAsMatcher($presenter));
-        $matchers->add(new ApproximatelyMatcher($presenter));
+        if (class_exists('TriggerMatcher')) {
+            $matchers->add(new TriggerMatcher($unwrapper));
+        }
+        if (class_exists('IterateAsMatcher')) {
+            $matchers->add(new IterateAsMatcher($presenter));
+        }
+        if (class_exists('ApproximatelyMatcher')) {
+            $matchers->add(new ApproximatelyMatcher($presenter));
+        }
 
         $trace = debug_backtrace();
         if (isset($trace[1]['object'])) {
