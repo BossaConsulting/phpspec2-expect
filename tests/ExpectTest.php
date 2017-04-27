@@ -43,7 +43,10 @@ class ExpectTest extends PHPUnit_Framework_TestCase
             [ function () {  expect('foo bar')->toStartWith('foo'); } ],
             [ function () {  expect('foo bar')->toEndWith('bar'); } ],
             [ function () {  expect('foo bar')->toMatch('/bar/'); } ],
-            [ function () {  expect((new Foo()))->toThrow('InvalidArgumentException')->duringThrowException(); } ]
+            [ function () {  expect((new Foo()))->toThrow('InvalidArgumentException')->duringThrowException(); } ],
+            [ function () {  expect((new Foo()))->toTrigger(E_USER_DEPRECATED)->duringTriggerError(); } ],
+            [ function () {  expect(1.444447777)->toBeApproximately(1.444447777, 1.0e-9); } ],
+            [ function () {  expect((new Foo())->getIterator())->toIterateAs(new \ArrayIterator(['Foo', 'Bar'])); } ],
         ];
     }
 
@@ -67,7 +70,9 @@ class ExpectTest extends PHPUnit_Framework_TestCase
             [ function () {  expect('foo bar')->toStartWith('baz'); } ],
             [ function () {  expect('foo bar')->toEndWith('baz'); } ],
             [ function () {  expect('foo bar')->toMatch('/baz/'); } ],
-            [ function () {  expect((new Foo()))->toThrow('AnotherException')->duringThrowException(); } ]
+            [ function () {  expect((new Foo()))->toThrow('AnotherException')->duringThrowException(); } ],
+            [ function () {  expect(1.444447777)->toBeApproximately(1.444447778, 1.0e-9); } ],
+            [ function () {  expect((new Foo())->getIterator())->toIterateAs(new \ArrayIterator(['Bar', 'Foo'])); } ]
         ];
     }
 }
