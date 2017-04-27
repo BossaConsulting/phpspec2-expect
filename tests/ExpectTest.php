@@ -2,7 +2,10 @@
 
 include __DIR__ . '/Foo.php';
 
-class ExpectTest extends PHPUnit_Framework_TestCase
+use PhpSpec\Exception\Exception as PhpSpecException;
+use PHPUnit\Framework\TestCase;
+
+class ExpectTest extends TestCase
 {
     /**
      * @test
@@ -16,10 +19,10 @@ class ExpectTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      * @dataProvider incorrectExpectations
-     * @expectedException Exception
      */
     function it_throws_when_expectation_is_not_met($expectation)
     {
+        $this->expectException(PhpSpecException::class);
         $expectation();
     }
 
