@@ -14,6 +14,7 @@ class ExpectTest extends TestCase
     function it_does_not_throw_when_expectation_is_met($expectation)
     {
         $expectation();
+        $this->addToAssertionCount(1); // No exception thrown
     }
 
     /**
