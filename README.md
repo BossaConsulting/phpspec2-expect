@@ -6,13 +6,18 @@ phpspec2-expect
 Installation
 ============
 
-Add `"bossa/phpspec2-expect": "*"` to `composer.json`
+Install it using the `composer require` command:
+
+```bash
+   composer require --dev bossa/phpspec2-expect
+```
+
+Alternativelly you can add it to the `composer.json` file
 
 ```json
 {
     "require-dev": {
-         "phpspec/phpspec": "dev-master",
-         "bossa/phpspec2-expect": "*"
+         "bossa/phpspec2-expect": "^2.2"
     },
     "config": {
         "bin-dir": "bin"

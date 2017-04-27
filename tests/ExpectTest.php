@@ -44,9 +44,9 @@ class ExpectTest extends PHPUnit_Framework_TestCase
             [ function () {  expect('foo bar')->toEndWith('bar'); } ],
             [ function () {  expect('foo bar')->toMatch('/bar/'); } ],
             [ function () {  expect((new Foo()))->toThrow('InvalidArgumentException')->duringThrowException(); } ],
-            [ function () {  expect((new Foo()))->toTrigger(E_USER_DEPRECATED)->duringTriggerError(); } ],
-            [ function () {  expect(1.444447777)->toBeApproximately(1.444447777, 1.0e-9); } ],
-            [ function () {  expect((new Foo())->getIterator())->toIterateAs(new \ArrayIterator(['Foo', 'Bar'])); } ],
+            [ function () {  method_exists(expect(''), 'toTrigger') && expect((new Foo()))->toTrigger(E_USER_DEPRECATED)->duringTriggerError(); } ],
+            [ function () {  method_exists(expect(''), 'toBeApproximately') && expect(1.444447777)->toBeApproximately(1.444447777, 1.0e-9); } ],
+            [ function () {  method_exists(expect(''), 'toIterateAs') && expect((new Foo())->getIterator())->toIterateAs(new \ArrayIterator(['Foo', 'Bar'])); } ],
         ];
     }
 
@@ -55,7 +55,7 @@ class ExpectTest extends PHPUnit_Framework_TestCase
      */
     function incorrectExpectations()
     {
-        return [
+        $incorrectExpectations = [
             [ function () {  expect(6)->toBe(5); } ],
             [ function () {  expect(6)->toBeLike('5'); } ],
             [ function () {  expect((new Foo()))->toHaveType('Bar'); } ],
@@ -70,9 +70,16 @@ class ExpectTest extends PHPUnit_Framework_TestCase
             [ function () {  expect('foo bar')->toStartWith('baz'); } ],
             [ function () {  expect('foo bar')->toEndWith('baz'); } ],
             [ function () {  expect('foo bar')->toMatch('/baz/'); } ],
-            [ function () {  expect((new Foo()))->toThrow('AnotherException')->duringThrowException(); } ],
-            [ function () {  expect(1.444447777)->toBeApproximately(1.444447778, 1.0e-9); } ],
-            [ function () {  expect((new Foo())->getIterator())->toIterateAs(new \ArrayIterator(['Bar', 'Foo'])); } ]
+            [ function () {  expect((new Foo()))->toThrow('AnotherException')->duringThrowException(); } ]
         ];
+
+        if (method_exists(expect(''), 'toBeApproximately')) {
+            $incorrectExpectations[] = [function () { expect(1.444447777)->toBeApproximately(1.444447778, 1.0e-9); }];
+        }
+        if (method_exists(expect(''), 'toIterateAs')) {
+            $incorrectExpectations = [ function () { expect((new Foo())->getIterator())->toIterateAs(new \ArrayIterator(['Bar', 'Foo'])); } ];
+        }
+
+        return $incorrectExpectations;
     }
 }
