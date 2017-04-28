@@ -69,6 +69,7 @@ if ($useExpect && !function_exists('expect')) {
         $matchers->add(new ArrayKeyMatcher($presenter));
         $matchers->add(new ArrayKeyValueMatcher($presenter));
         $matchers->add(new ArrayContainMatcher($presenter));
+        $matchers->add(new StringContainMatcher($presenter));
         $matchers->add(new StringStartMatcher($presenter));
         $matchers->add(new StringEndMatcher($presenter));
         $matchers->add(new StringRegexMatcher($presenter));
