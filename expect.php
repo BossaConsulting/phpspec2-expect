@@ -73,13 +73,13 @@ if ($useExpect && !function_exists('expect')) {
         $matchers->add(new StringEndMatcher($presenter));
         $matchers->add(new StringRegexMatcher($presenter));
         $matchers->add(new StringContainMatcher($presenter));
-        if (class_exists('TriggerMatcher')) {
+        if (class_exists('PhpSpec\Matcher\TriggerMatcher')) {
             $matchers->add(new TriggerMatcher($unwrapper));
         }
-        if (class_exists('IterateAsMatcher')) {
+        if (class_exists('PhpSpec\Matcher\IterateAsMatcher')) {
             $matchers->add(new IterateAsMatcher($presenter));
         }
-        if (class_exists('ApproximatelyMatcher')) {
+        if (class_exists('PhpSpec\Matcher\ApproximatelyMatcher')) {
             $matchers->add(new ApproximatelyMatcher($presenter));
         }
 
