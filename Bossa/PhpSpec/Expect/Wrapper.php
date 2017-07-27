@@ -8,7 +8,7 @@ use PhpSpec\Runner\MatcherManager;
 use PhpSpec\Formatter\Presenter\Presenter;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use PhpSpec\Loader\Node\ExampleNode;
-
+use PhpSpec\Wrapper\Subject as BaseSubject;
 use PhpSpec\Wrapper\Subject\WrappedObject;
 use PhpSpec\Wrapper\Subject\Caller;
 use PhpSpec\Wrapper\Subject\SubjectWithArrayAccess;
@@ -33,7 +33,7 @@ class Wrapper extends BaseWrapper
         $this->accessInspector = $accessInspector;
     }
 
-    public function wrap($value = null)
+    public function wrap($value = null): BaseSubject
     {
         $exceptionFactory   = new ExceptionFactory($this->presenter);
         $wrappedObject      = new WrappedObject($value, $this->presenter);
