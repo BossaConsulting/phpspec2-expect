@@ -17,7 +17,7 @@ Alternativelly you can add it to the `composer.json` file
 ```json
 {
     "require-dev": {
-         "bossa/phpspec2-expect": "^2.2"
+         "bossa/phpspec2-expect": "^3.0"
     },
     "config": {
         "bin-dir": "bin"
