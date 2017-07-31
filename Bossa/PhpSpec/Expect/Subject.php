@@ -6,7 +6,7 @@ use PhpSpec\Wrapper\Subject as BaseSubject;
 
 class Subject extends BaseSubject
 {
-    public function __call($method, array $arguments = array())
+    public function __call(string $method, array $arguments = array())
     {
         if (preg_match('/^(to|notTo)(.+)$/', $method, $matches)) {
             $method = 'should'.$matches[2];
