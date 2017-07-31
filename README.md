@@ -42,3 +42,9 @@ Inside some example:
        expect(file_exists('crazyfile.xtn'))->toBe(true);
 
 ```
+
+Roadmap
+=======
+
+Version `2.x` supports PhpSpec 3 and PHP 5.6.  Version `3.x` requires PhpSpec 4, and therefore requires PHP 7.  Both
+versions are under active support.
