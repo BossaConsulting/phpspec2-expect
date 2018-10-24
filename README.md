@@ -46,5 +46,10 @@ Inside some example:
 Roadmap
 =======
 
-Version `2.x` supports PhpSpec 3 and PHP 5.6.  Version `3.x` requires PhpSpec 4, and therefore requires PHP 7.  Both
-versions are under active support.
+Version `2.x` supports PhpSpec 3 and PHP 5.6.
+
+Version `3.0.x` requires PhpSpec 4, and therefore requires PHP 7.
+
+Version `3.1.x` requires PhpSpec 5 and PHP 7.
+
+These versions are all under active support.
