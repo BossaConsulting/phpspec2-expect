@@ -9,7 +9,7 @@ Installation
 Install it using the `composer require` command:
 
 ```bash
-   composer require --dev bossa/phpspec-expect
+   composer require --dev bossa/phpspec2-expect
 ```
 
 Alternativelly you can add it to the `composer.json` file
