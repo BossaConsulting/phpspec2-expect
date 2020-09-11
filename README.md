@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/BossaConsulting/phpspec-expect.svg?branch=3.x)](https://travis-ci.org/BossaConsulting/phpspec-expect)
+[![Build Status](https://travis-ci.org/BossaConsulting/phpspec2-expect.svg?branch=3.x)](https://travis-ci.org/BossaConsulting/phpspec2-expect)
 
-phpspec-expect
+phpspec2-expect
 ---------------
 
 Installation
@@ -17,7 +17,7 @@ Alternativelly you can add it to the `composer.json` file
 ```json
 {
     "require-dev": {
-         "bossa/phpspec-expect": "^3.0"
+         "bossa/phpspec2-expect": "^3.0"
     },
     "config": {
         "bin-dir": "bin"
