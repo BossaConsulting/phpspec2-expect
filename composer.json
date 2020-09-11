@@ -1,5 +1,5 @@
 {
-    "name":         "bossa/phpspec-expect",
+    "name":         "bossa/phpspec2-expect",
     "description":  "Helper that decorates any SUS with a phpspec lazy object wrapper",
     "keywords":     ["BDD", "SpecBDD", "TDD", "spec", "specification"],
     "license":      "MIT",
